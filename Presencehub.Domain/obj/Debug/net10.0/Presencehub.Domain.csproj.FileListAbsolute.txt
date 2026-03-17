@@ -1,0 +1,12 @@
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\bin\Debug\net10.0\Presencehub.Domain.deps.json
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\bin\Debug\net10.0\Presencehub.Domain.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\bin\Debug\net10.0\Presencehub.Domain.pdb
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.AssemblyInfoInputs.cache
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.AssemblyInfo.cs
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.sourcelink.json
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\refint\Presencehub.Domain.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\Presencehub.Domain.pdb
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Domain\obj\Debug\net10.0\ref\Presencehub.Domain.dll

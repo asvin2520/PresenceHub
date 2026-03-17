@@ -1,10 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Presencehub.Infrastructure.Dbcontextclass;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Register DbContext (MUST be before builder.Build())
+builder.Services.AddDbContext<PresencehubDbContextClass>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
