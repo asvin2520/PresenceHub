@@ -11,6 +11,6 @@ namespace Presencehub.Domain.Entity
         public int RoleId { get; set; }
         public string RoleName { get; set; }
         public string RoleDescription { get; set; }
-        public User User { get; set; }
+        public ICollection<User> Users { get; set; }
     }
 }

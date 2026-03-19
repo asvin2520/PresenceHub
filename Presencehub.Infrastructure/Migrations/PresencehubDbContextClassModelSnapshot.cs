@@ -101,8 +101,7 @@ namespace Presencehub.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId")
-                        .IsUnique();
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -174,8 +173,8 @@ namespace Presencehub.Infrastructure.Migrations
             modelBuilder.Entity("Presencehub.Domain.Entity.User", b =>
                 {
                     b.HasOne("Presencehub.Domain.Entity.Role", "Role")
-                        .WithOne("User")
-                        .HasForeignKey("Presencehub.Domain.Entity.User", "RoleId")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -195,8 +194,7 @@ namespace Presencehub.Infrastructure.Migrations
 
             modelBuilder.Entity("Presencehub.Domain.Entity.Role", b =>
                 {
-                    b.Navigation("User")
-                        .IsRequired();
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Presencehub.Domain.Entity.User", b =>
