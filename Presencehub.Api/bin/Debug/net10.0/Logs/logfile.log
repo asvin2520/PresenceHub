@@ -1,0 +1,209 @@
+2026-03-23 14:12:38,884 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BlazorWasmHotReloadMiddleware - Middleware loaded
+2026-03-23 14:12:38,938 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/aspnetcore-browser-refresh.js (16515 B).
+2026-03-23 14:12:38,941 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/blazor-hotreload.js (799 B).
+2026-03-23 14:12:39,475 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware - Middleware loaded: DOTNET_MODIFIABLE_ASSEMBLIES=debug, __ASPNETCORE_BROWSER_TOOLS=true
+2026-03-23 14:12:40,076 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Script injected: /_framework/aspnetcore-browser-refresh.js
+2026-03-23 14:12:41,796 [2] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2026-03-23 14:12:41,802 [2] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2026-03-23 14:12:41,802 [2] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api
+2026-03-23 14:13:39,396 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Adding new role
+2026-03-23 14:13:45,767 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (731ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([RoleDescription], [RoleName])
+OUTPUT INSERTED.[RoleId]
+VALUES (@p0, @p1);
+2026-03-23 14:13:45,949 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Role added successfully
+2026-03-23 14:14:04,979 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Fetching all roles
+2026-03-23 14:14:05,915 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoleId], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+2026-03-23 14:14:05,989 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Roles fetched successfully
+2026-03-23 14:15:35,598 [.NET TP Worker] INFO  Presencehub.Api.Controllers.AttendencesController - Fetching all attendance records
+2026-03-23 14:15:35,710 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [a].[AttendanceId], [a].[Date], [a].[RecordedBy], [a].[Status], [a].[UserId]
+FROM [Attendances] AS [a]
+2026-03-23 14:15:35,760 [.NET TP Worker] INFO  Presencehub.Api.Controllers.AttendencesController - Attendance records fetched successfully
+2026-03-23 14:15:54,091 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Fetching all roles
+2026-03-23 14:15:54,099 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoleId], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+2026-03-23 14:15:54,102 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Roles fetched successfully
+2026-03-23 14:16:58,606 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Adding new user
+2026-03-23 14:16:59,183 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (217ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [Password], [RoleId], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-03-23 14:16:59,271 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (69ms) [Parameters=[@p5='?' (Size = 4000), @p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserDetails] ([Address], [DOB], [Department], [FullName], [Gender], [PhoneNumber], [UserId], [Year])
+OUTPUT INSERTED.[Id]
+VALUES (@p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-03-23 14:16:59,347 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - User added successfully
+2026-03-23 14:17:25,292 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Fetching all users
+2026-03-23 14:17:27,005 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (721ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Password], [u].[RoleId], [u].[UserName], [u0].[Id], [u0].[Address], [u0].[DOB], [u0].[Department], [u0].[FullName], [u0].[Gender], [u0].[PhoneNumber], [u0].[UserId], [u0].[Year]
+FROM [Users] AS [u]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+2026-03-23 14:17:27,043 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Users fetched successfully
+2026-03-23 14:18:17,651 [.NET TP Worker] INFO  Presencehub.Api.Controllers.AttendencesController - Adding new attendance record
+2026-03-23 14:18:17,806 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (126ms) [Parameters=[@p0='?' (DbType = Date), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Attendances] ([Date], [RecordedBy], [Status], [UserId])
+OUTPUT INSERTED.[AttendanceId]
+VALUES (@p0, @p1, @p2, @p3);
+2026-03-23 14:18:17,813 [.NET TP Worker] INFO  Presencehub.Api.Controllers.AttendencesController - Attendance record added successfully
+2026-03-23 15:16:23,987 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BlazorWasmHotReloadMiddleware - Middleware loaded
+2026-03-23 15:16:24,077 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/aspnetcore-browser-refresh.js (16515 B).
+2026-03-23 15:16:24,081 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/blazor-hotreload.js (799 B).
+2026-03-23 15:16:24,695 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware - Middleware loaded: DOTNET_MODIFIABLE_ASSEMBLIES=debug, __ASPNETCORE_BROWSER_TOOLS=true
+2026-03-23 15:16:25,418 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Script injected: /_framework/aspnetcore-browser-refresh.js
+2026-03-23 15:16:25,581 [2] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2026-03-23 15:16:25,582 [2] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2026-03-23 15:16:25,582 [2] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api
+2026-03-23 15:16:38,643 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Fetching all users
+2026-03-23 15:16:55,311 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (1,008ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Password], [u].[RoleId], [u].[UserName], [u0].[Id], [u0].[Address], [u0].[DOB], [u0].[Department], [u0].[FullName], [u0].[Gender], [u0].[PhoneNumber], [u0].[UserId], [u0].[Year]
+FROM [Users] AS [u]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+2026-03-23 15:16:56,314 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Users fetched successfully
+2026-03-23 15:17:29,983 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Fetching all roles
+2026-03-23 15:17:30,078 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [r].[RoleId], [r].[RoleDescription], [r].[RoleName]
+FROM [Roles] AS [r]
+2026-03-23 15:17:30,109 [.NET TP Worker] INFO  Presencehub.Api.Controllers.RoleController - Roles fetched successfully
+2026-03-23 15:18:44,658 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Adding new user
+2026-03-23 15:18:45,838 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (300ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [Password], [RoleId], [UserName])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-03-23 15:18:45,951 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (26ms) [Parameters=[@p5='?' (Size = 4000), @p6='?' (DbType = Date), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [UserDetails] ([Address], [DOB], [Department], [FullName], [Gender], [PhoneNumber], [UserId], [Year])
+OUTPUT INSERTED.[Id]
+VALUES (@p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-03-23 15:18:46,022 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - User added successfully
+2026-03-23 15:18:56,298 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Fetching all users
+2026-03-23 15:18:56,347 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Password], [u].[RoleId], [u].[UserName], [u0].[Id], [u0].[Address], [u0].[DOB], [u0].[Department], [u0].[FullName], [u0].[Gender], [u0].[PhoneNumber], [u0].[UserId], [u0].[Year]
+FROM [Users] AS [u]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+2026-03-23 15:18:56,351 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Users fetched successfully
+2026-03-23 15:19:16,113 [.NET TP Worker] INFO  Presencehub.Api.Controllers.UserController - Fetching user with Id: 8
+2026-03-23 15:19:16,325 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (56ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Password], [u].[RoleId], [u].[UserName], [u0].[Id], [u0].[Address], [u0].[DOB], [u0].[Department], [u0].[FullName], [u0].[Gender], [u0].[PhoneNumber], [u0].[UserId], [u0].[Year]
+FROM [Users] AS [u]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+WHERE [u].[Id] = @id
+2026-03-23 15:29:03,291 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BlazorWasmHotReloadMiddleware - Middleware loaded
+2026-03-23 15:29:03,338 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/aspnetcore-browser-refresh.js (16515 B).
+2026-03-23 15:29:03,341 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Middleware loaded. Script /_framework/blazor-hotreload.js (799 B).
+2026-03-23 15:29:03,859 [2] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware - Middleware loaded: DOTNET_MODIFIABLE_ASSEMBLIES=debug, __ASPNETCORE_BROWSER_TOOLS=true
+2026-03-23 15:29:04,446 [.NET TP Worker] DEBUG Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserScriptMiddleware - Script injected: /_framework/aspnetcore-browser-refresh.js
+2026-03-23 15:29:04,645 [2] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2026-03-23 15:29:04,646 [2] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2026-03-23 15:29:04,646 [2] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api
+2026-03-23 15:29:33,991 [.NET TP Worker] INFO  Presencehub.Api.Controllers.AttendencesController - Adding new attendance record
+2026-03-23 15:29:38,564 [.NET TP Worker] INFO  Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (553ms) [Parameters=[@p0='?' (DbType = Date), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Attendances] ([Date], [RecordedBy], [Status], [UserId])
+OUTPUT INSERTED.[AttendanceId]
+VALUES (@p0, @p1, @p2, @p3);
+2026-03-23 15:29:38,831 [.NET TP Worker] ERROR Microsoft.EntityFrameworkCore.Update - An exception occurred in the database while saving changes for context type 'Presencehub.Infrastructure.Dbcontextclass.PresencehubDbContextClass'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Attendances_Users_RecordedBy". The conflict occurred in database "PresenceHubDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:6e1b152e-fb1b-4375-a4b3-a2c6ca6ac97e
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Attendances_Users_RecordedBy". The conflict occurred in database "PresenceHubDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:6e1b152e-fb1b-4375-a4b3-a2c6ca6ac97e
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-03-23 15:29:40,160 [.NET TP Worker] ERROR Presencehub.Api.Controllers.AttendencesController - Error occurred while adding attendance
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Attendances_Users_RecordedBy". The conflict occurred in database "PresenceHubDB", table "dbo.Users", column 'Id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:6e1b152e-fb1b-4375-a4b3-a2c6ca6ac97e
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Presencehub.Infrastructure.RepositoryClass.AttendencesRepoClass.AddUser(Attendance attendance) in C:\Users\Ashna\source\repos\Presencehub\Presencehub.Infrastructure\RepositoryClass\AttendencesRepoClass.cs:line 26
+   at Presencehub.Application.ServiceClass.AttendencesServicesClass.AddUser(AttendanceDto attendanceDto) in C:\Users\Ashna\source\repos\Presencehub\Presencehub.Application\ServiceClass\AttendencesServicesClass.cs:line 27
+   at Presencehub.Api.Controllers.AttendencesController.AddUser(AttendanceDto attendanceDto) in C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\Controllers\AttendencesController.cs:line 55

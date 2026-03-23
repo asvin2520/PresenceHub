@@ -19,6 +19,8 @@ namespace Presencehub.Infrastructure.Dbcontextclass
         public DbSet<Attendance> Attendances { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Attendance>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Attendances)
@@ -30,6 +32,11 @@ namespace Presencehub.Infrastructure.Dbcontextclass
                 .WithMany()
                 .HasForeignKey(a => a.RecordedBy)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.UserDetails)
+                .WithOne(ud => ud.User)
+                .HasForeignKey<UserDetails>(ud => ud.UserId);
         }
     }
 

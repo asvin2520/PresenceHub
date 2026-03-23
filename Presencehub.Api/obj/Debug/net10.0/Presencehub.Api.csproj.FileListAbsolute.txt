@@ -178,3 +178,7 @@ C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\AutoMa
 C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\log4net.config
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\log4net.dll
+C:\Users\Ashna\source\repos\Presencehub\Presencehub.Api\bin\Debug\net10.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
